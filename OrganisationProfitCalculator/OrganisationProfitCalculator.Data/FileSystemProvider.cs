@@ -35,14 +35,13 @@ namespace OrganisationProfitCalculator.Data
         //This method will populate all the data to the model
         public List<Office> PopulateTheData(DataTable csvTable)
         {
-            var columns = new List<Office>();
+            var offices = new List<Office>();
             for (int i = 0; i < csvTable.Rows.Count; i++)
             {
-                columns.Add(new Office { Name = csvTable.Rows[i][0].ToString(), Parent = csvTable.Rows[i][1].ToString(), Amount = Convert.ToDouble(csvTable.Rows[i][2]) });
+                offices.Add(new Office { Name = csvTable.Rows[i][0].ToString(), Parent = csvTable.Rows[i][1].ToString(), Amount = Convert.ToDouble(csvTable.Rows[i][2]) });
             }
 
-            return columns;
+            return offices;
         }
-
     }
 }
