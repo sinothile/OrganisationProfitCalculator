@@ -19,10 +19,10 @@ namespace OrganisationProfitCalculator.UseCase
         //This method calls all the methods to be executed in order to get nett profit
         public double CalculateNettProfit(string fileName, string officeName)
         {   
-            var offices = ProcessFile(fileName);
-            var descendants = GetDescendants(officeName, offices);
+            var fileData = ProcessFile(fileName);
+            var descendants = GetDescendants(officeName, fileData);
 
-            return GetNettProfit(offices, descendants);    
+            return GetNettProfit(fileData, descendants);        
         }
 
         //This method will get all the descendants
@@ -95,8 +95,8 @@ namespace OrganisationProfitCalculator.UseCase
         {
             var path = _fileSystemProvider.GetFile(fileName);
             var file = _fileSystemProvider.ReadFile(path);
-            var offices = _fileSystemProvider.GetOffices(file);
-            return offices;
+            var fileData = _fileSystemProvider.GetOffices(file);
+            return fileData;
         }
     }
 }
