@@ -44,15 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NettCalculator.cs" />
-    <Compile Include="Models\Columns.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OrganisationProfitCalculator.Data\OrganisationProfitCalculator.Data.csproj">
+      <Project>{A05454BE-CD9D-4FCC-9FF4-4584CE956BFF}</Project>
+      <Name>OrganisationProfitCalculator.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrganisationProfitCalculator.UseCase\OrganisationProfitCalculator.UseCase.csproj">
+      <Project>{F5719BA0-61C0-4FA0-97EC-24672DEFD8E9}</Project>
+      <Name>OrganisationProfitCalculator.UseCase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LumenWorks.Framework.IO">
       <Version>3.8.0</Version>

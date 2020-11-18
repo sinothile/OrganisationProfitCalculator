@@ -10,6 +10,31 @@
         "runtime": {
           "lib/net20/LumenWorks.Framework.IO.dll": {}
         }
+      },
+      "OrganisationProfitCalculator.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.2",
+        "dependencies": {
+          "LumenWorks.Framework.IO": "3.8.0"
+        },
+        "compile": {
+          "bin/placeholder/OrganisationProfitCalculator.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrganisationProfitCalculator.Data.dll": {}
+        }
+      },
+      "OrganisationProfitCalculator.UseCase/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "OrganisationProfitCalculator.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/OrganisationProfitCalculator.UseCase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrganisationProfitCalculator.UseCase.dll": {}
+        }
       }
     },
     ".NETFramework,Version=v4.6.2/win": {
@@ -20,6 +45,31 @@
         },
         "runtime": {
           "lib/net20/LumenWorks.Framework.IO.dll": {}
+        }
+      },
+      "OrganisationProfitCalculator.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.2",
+        "dependencies": {
+          "LumenWorks.Framework.IO": "3.8.0"
+        },
+        "compile": {
+          "bin/placeholder/OrganisationProfitCalculator.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrganisationProfitCalculator.Data.dll": {}
+        }
+      },
+      "OrganisationProfitCalculator.UseCase/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "OrganisationProfitCalculator.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/OrganisationProfitCalculator.UseCase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrganisationProfitCalculator.UseCase.dll": {}
         }
       }
     },
@@ -32,6 +82,31 @@
         "runtime": {
           "lib/net20/LumenWorks.Framework.IO.dll": {}
         }
+      },
+      "OrganisationProfitCalculator.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.2",
+        "dependencies": {
+          "LumenWorks.Framework.IO": "3.8.0"
+        },
+        "compile": {
+          "bin/placeholder/OrganisationProfitCalculator.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrganisationProfitCalculator.Data.dll": {}
+        }
+      },
+      "OrganisationProfitCalculator.UseCase/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "OrganisationProfitCalculator.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/OrganisationProfitCalculator.UseCase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrganisationProfitCalculator.UseCase.dll": {}
+        }
       }
     },
     ".NETFramework,Version=v4.6.2/win-x86": {
@@ -42,6 +117,31 @@
         },
         "runtime": {
           "lib/net20/LumenWorks.Framework.IO.dll": {}
+        }
+      },
+      "OrganisationProfitCalculator.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.2",
+        "dependencies": {
+          "LumenWorks.Framework.IO": "3.8.0"
+        },
+        "compile": {
+          "bin/placeholder/OrganisationProfitCalculator.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrganisationProfitCalculator.Data.dll": {}
+        }
+      },
+      "OrganisationProfitCalculator.UseCase/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "OrganisationProfitCalculator.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/OrganisationProfitCalculator.UseCase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrganisationProfitCalculator.UseCase.dll": {}
         }
       }
     }
@@ -59,11 +159,23 @@
         "lumenworks.framework.io.3.8.0.nupkg.sha512",
         "lumenworks.framework.io.nuspec"
       ]
+    },
+    "OrganisationProfitCalculator.Data/1.0.0": {
+      "type": "project",
+      "path": "../OrganisationProfitCalculator.Data/OrganisationProfitCalculator.Data.csproj",
+      "msbuildProject": "../OrganisationProfitCalculator.Data/OrganisationProfitCalculator.Data.csproj"
+    },
+    "OrganisationProfitCalculator.UseCase/1.0.0": {
+      "type": "project",
+      "path": "../OrganisationProfitCalculator.UseCase/OrganisationProfitCalculator.UseCase.csproj",
+      "msbuildProject": "../OrganisationProfitCalculator.UseCase/OrganisationProfitCalculator.UseCase.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.2": [
-      "LumenWorks.Framework.IO >= 3.8.0"
+      "LumenWorks.Framework.IO >= 3.8.0",
+      "OrganisationProfitCalculator.Data >= 1.0.0",
+      "OrganisationProfitCalculator.UseCase >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -72,11 +184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sinothilem\\source\\repos\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.csproj",
+      "projectUniqueName": "I:\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.csproj",
       "projectName": "OrganisationProfitCalculator",
-      "projectPath": "C:\\Users\\sinothilem\\source\\repos\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.csproj",
+      "projectPath": "I:\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.csproj",
       "packagesPath": "C:\\Users\\sinothilem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sinothilem\\source\\repos\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\obj\\",
+      "outputPath": "I:\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -92,7 +204,14 @@
       },
       "frameworks": {
         "net462": {
-          "projectReferences": {}
+          "projectReferences": {
+            "I:\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.Data\\OrganisationProfitCalculator.Data.csproj": {
+              "projectPath": "I:\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.Data\\OrganisationProfitCalculator.Data.csproj"
+            },
+            "I:\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.UseCase\\OrganisationProfitCalculator.UseCase.csproj": {
+              "projectPath": "I:\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.UseCase\\OrganisationProfitCalculator.UseCase.csproj"
+            }
+          }
         }
       }
     },

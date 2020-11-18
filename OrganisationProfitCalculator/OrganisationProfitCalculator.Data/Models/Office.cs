@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganisationProfitCalculator.Models
+namespace OrganisationProfitCalculator.Data.Models
 {
-    public class Columns
+    public class Office
     {
-        public string Office { get; set; }
+        public string Name { get; set; }
         public string Parent { get; set; }
         public double Amount { get; set; }
-    }
+    }   
 }

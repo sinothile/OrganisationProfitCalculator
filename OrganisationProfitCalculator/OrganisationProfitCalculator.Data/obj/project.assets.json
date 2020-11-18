@@ -1,0 +1,121 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.6.2": {
+      "LumenWorks.Framework.IO/3.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/net20/LumenWorks.Framework.IO.dll": {}
+        },
+        "runtime": {
+          "lib/net20/LumenWorks.Framework.IO.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.2/win": {
+      "LumenWorks.Framework.IO/3.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/net20/LumenWorks.Framework.IO.dll": {}
+        },
+        "runtime": {
+          "lib/net20/LumenWorks.Framework.IO.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.2/win-x64": {
+      "LumenWorks.Framework.IO/3.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/net20/LumenWorks.Framework.IO.dll": {}
+        },
+        "runtime": {
+          "lib/net20/LumenWorks.Framework.IO.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.2/win-x86": {
+      "LumenWorks.Framework.IO/3.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/net20/LumenWorks.Framework.IO.dll": {}
+        },
+        "runtime": {
+          "lib/net20/LumenWorks.Framework.IO.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LumenWorks.Framework.IO/3.8.0": {
+      "sha512": "zmSEHPjF0OiRI/l5UrTFxokErUBPL1wDO18ICS5awHuRbHD8ALG4Wi3DtF++an5K7znjOKaIAF3Wx7r5dosc2g==",
+      "type": "package",
+      "path": "lumenworks.framework.io/3.8.0",
+      "files": [
+        ".signature.p7s",
+        "COPYING.txt",
+        "lib/net20/LumenWorks.Framework.IO.dll",
+        "lib/net20/LumenWorks.Framework.IO.xml",
+        "lumenworks.framework.io.3.8.0.nupkg.sha512",
+        "lumenworks.framework.io.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.6.2": [
+      "LumenWorks.Framework.IO >= 3.8.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\sinothilem\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "I:\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.Data\\OrganisationProfitCalculator.Data.csproj",
+      "projectName": "OrganisationProfitCalculator.Data",
+      "projectPath": "I:\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.Data\\OrganisationProfitCalculator.Data.csproj",
+      "packagesPath": "C:\\Users\\sinothilem\\.nuget\\packages\\",
+      "outputPath": "I:\\OrganisationProfitCalculator\\OrganisationProfitCalculator\\OrganisationProfitCalculator.Data\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\sinothilem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net462"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net462": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net462": {
+        "dependencies": {
+          "LumenWorks.Framework.IO": {
+            "target": "Package",
+            "version": "[3.8.0, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

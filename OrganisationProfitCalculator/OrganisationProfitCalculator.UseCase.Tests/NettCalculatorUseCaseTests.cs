@@ -1,20 +1,21 @@
 ﻿using NUnit.Framework;
-using OrganisationProfitCalculator;
+using OrganisationProfitCalculator.Data;
+using OrganisationProfitCalculator.Data.Interfaces;
 
-namespace OrganisationProfitCalculatorTests
+namespace OrganisationProfitCalculator.UseCase.Tests
 {
     [TestFixture]
-    public class NetCalculatorTests
+    public class NettCalculatorUseCaseTests
     {
         [Test]
         public void Given_null_officeName_Should_return_nettProfit_zero()
         {
             //Arrange  
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator();
+            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
 
             //Act
-            var actual = nettCalculator.GetNettProfit(fileName,null);
+            var actual = nettCalculator.CalculateNettProfit(fileName, null);
 
             //Assert
             var expected = 0;
@@ -27,10 +28,10 @@ namespace OrganisationProfitCalculatorTests
         {
             //Arrange 
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator();
+            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
 
             //Act
-            var actual = nettCalculator.GetNettProfit(fileName, officeName);
+            var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
 
             //Assert
             var expected = 0;
@@ -38,17 +39,17 @@ namespace OrganisationProfitCalculatorTests
         }
 
         [TestCase("HeadOffice", 627)]
-        [TestCase("Western Cape",182)]
-        [TestCase("Cape Town", 162)]
+        [TestCase("Western Cape", 182)]
+        [TestCase("Cape Town", 162)]    
         [TestCase("Northern Suburbs", 15)]
-        public void Given_officeName_Should_get_nettProfit(string officeName, double expected)
+        public void Given_valid_officeName_Should_get_nettProfit(string officeName, double expected)
         {
             //Arrange
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator();
+            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
 
             //Act
-            var actual = nettCalculator.GetNettProfit(fileName, officeName);
+            var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -62,10 +63,10 @@ namespace OrganisationProfitCalculatorTests
         {
             //Arrange
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator();
+            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
 
             //Act
-            var actual = nettCalculator.GetNettProfit(fileName, officeName);
+            var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -79,10 +80,10 @@ namespace OrganisationProfitCalculatorTests
         {
             //Arrange 
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator();
+            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
 
             //Act
-            var actual = nettCalculator.GetNettProfit(fileName, officeName);
+            var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -93,13 +94,13 @@ namespace OrganisationProfitCalculatorTests
         [TestCase("NorthernSuburbs", 15)]
         [TestCase("northernsuburbs", 15)]
         public void Given_officeName_with_no_spaces_Should_get_nettProfit(string officeName, double expected)
-        {   
+        {
             //Arrange   
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator();
+            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
 
             //Act
-            var actual = nettCalculator.GetNettProfit(fileName, officeName);
+            var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -110,7 +111,7 @@ namespace OrganisationProfitCalculatorTests
         {
             //Arrange   
             var fileName = @"Documents\Question 2 input.csv";
-            var nettCalculator = NettCalculator();
+            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
 
             //Act
             var actual = nettCalculator.FindLargestNettProfit(fileName);
@@ -120,9 +121,9 @@ namespace OrganisationProfitCalculatorTests
             Assert.AreEqual(expected, actual);
         }
 
-        private NettCalculator NettCalculator()
+        private NettCalculatorUseCase NettCalculator(IFileSystemProvider fileSystemProvider, IDataCleaner dataCleaner)
         {
-            return new NettCalculator();
+            return new NettCalculatorUseCase(fileSystemProvider, dataCleaner);
         }
     }
 }

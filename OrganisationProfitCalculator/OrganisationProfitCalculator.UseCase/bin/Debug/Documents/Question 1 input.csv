@@ -1,0 +1,21 @@
+Office,Parent,Amount
+HeadOffice,,10
+South Africa,HeadOffice,30
+KZN,South Africa,30
+eThekwini,KZN,10
+Durban,eThekwini,15
+Pinetown,eThekwini,20
+Western Cape,South Africa,20
+Cape Town,Western Cape,22
+Northern Suburbs,Cape Town,5
+Southern Suburbs,Cape Town,10
+Bellville,Northern Suburbs,10
+Claremont,Southern Suburbs,15
+Newlands,Southern Suburbs,100
+US,HeadOffice,30
+New York,US,50
+California,US,40
+Los Angeles,California,25
+San Francisco,California,35
+UK,HeadOffice,70
+London,UK,80
