@@ -1,0 +1,8 @@
+C:\Users\sinothilem\source\repos\OrganisationProfitCalculator\OrganisationProfitCalculator\bin\Debug\OrganisationProfitCalculator.exe.config
+C:\Users\sinothilem\source\repos\OrganisationProfitCalculator\OrganisationProfitCalculator\bin\Debug\OrganisationProfitCalculator.exe
+C:\Users\sinothilem\source\repos\OrganisationProfitCalculator\OrganisationProfitCalculator\bin\Debug\OrganisationProfitCalculator.pdb
+C:\Users\sinothilem\source\repos\OrganisationProfitCalculator\OrganisationProfitCalculator\bin\Debug\LumenWorks.Framework.IO.dll
+C:\Users\sinothilem\source\repos\OrganisationProfitCalculator\OrganisationProfitCalculator\obj\Debug\OrganisationProfitCalculator.csproj.CoreCompileInputs.cache
+C:\Users\sinothilem\source\repos\OrganisationProfitCalculator\OrganisationProfitCalculator\obj\Debug\OrganisationProfitCalculator.csproj.CopyComplete
+C:\Users\sinothilem\source\repos\OrganisationProfitCalculator\OrganisationProfitCalculator\obj\Debug\OrganisationProfitCalculator.exe
+C:\Users\sinothilem\source\repos\OrganisationProfitCalculator\OrganisationProfitCalculator\obj\Debug\OrganisationProfitCalculator.pdb
