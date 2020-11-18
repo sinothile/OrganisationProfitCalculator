@@ -7,7 +7,7 @@ namespace OrganisationProfitCalculator.Data.Tests
     public class FileSystemProviderTests
     {
         [Test]
-        public void Given_fileName_Should_return_file_path()
+        public void Given_valid_fileName_Should_return_file_path()
         {
             //Arrange  
             var fileName = @"Documents\Question 1 input.csv";

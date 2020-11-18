@@ -12,6 +12,6 @@ namespace OrganisationProfitCalculator.Data.Interfaces
     {
        string GetFile(string fileName);
        DataTable ReadFile(string filePath);
-       List<Office> PopulateTheData(DataTable csvTable);
-    }
+       List<Office> GetOffices(DataTable csvTable);
+    }   
 }

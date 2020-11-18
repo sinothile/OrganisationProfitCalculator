@@ -32,8 +32,8 @@ namespace OrganisationProfitCalculator.Data
             return csvTable;
         }
 
-        //This method will populate all the data to the model
-        public List<Office> PopulateTheData(DataTable csvTable)
+        //This method will populate all the data to the model and return offices
+        public List<Office> GetOffices(DataTable csvTable)  
         {
             var offices = new List<Office>();
             for (int i = 0; i < csvTable.Rows.Count; i++)

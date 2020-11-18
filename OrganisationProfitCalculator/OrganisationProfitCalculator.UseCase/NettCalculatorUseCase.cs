@@ -17,14 +17,12 @@ namespace OrganisationProfitCalculator.UseCase
         }
 
         //This method calls all the methods to be executed in order to get nett profit
-         public double CalculateNettProfit(string fileName, string officeName)
+        public double CalculateNettProfit(string fileName, string officeName)
         {   
-            var path = _fileSystemProvider.GetFile(fileName);
-            var file = _fileSystemProvider.ReadFile(path);
-            var fileData = _fileSystemProvider.PopulateTheData(file);
-            var descendants = GetDescendants(officeName, fileData);
+            var offices = ProcessFile(fileName);
+            var descendants = GetDescendants(officeName, offices);
 
-            return GetNettProfit(fileData, descendants);
+            return GetNettProfit(offices, descendants);    
         }
 
         //This method will get all the descendants
@@ -53,14 +51,14 @@ namespace OrganisationProfitCalculator.UseCase
         }
 
         //This method will calculate the nett profit for office including its descendants
-        private double GetNettProfit(List<Office> fileData, List<string> descendants)
+        private double GetNettProfit(List<Office> offices, List<string> descendants)
         {
             var total = new List<double>();
 
             foreach (var descendant in descendants)
             {
-                var amount = (fileData.Where(x => _dataCleaner.CleanData(x.Name) == descendant).Select(y => y.Amount)).ToList();
-                if (amount.Any())
+                var amount = (offices.Where(x => _dataCleaner.CleanData(x.Name) == descendant).Select(y => y.Amount)).ToList();
+                if (amount.Any())   
                 {
                     total.Add(amount.ElementAt(0));
                 }
@@ -76,16 +74,14 @@ namespace OrganisationProfitCalculator.UseCase
          */
         public string FindLargestNettProfit(string fileName)
         {
-            var path = _fileSystemProvider.GetFile(fileName);
-            var file = _fileSystemProvider.ReadFile(path);
-            var officeData = _fileSystemProvider.PopulateTheData(file);
+            var offices = ProcessFile(fileName);
             var officeWithLargestNettProfit = "";
             double maxNettProfit = 0;
 
-            foreach (var office in officeData)
+            foreach (var office in offices)
             {
-                var descendants = GetDescendants(office.Name, officeData);
-                var total = GetNettProfit(officeData, descendants);
+                var descendants = GetDescendants(office.Name, offices);
+                var total = GetNettProfit(offices, descendants);
 
                 if (!(total > maxNettProfit)) continue;
                 maxNettProfit = total;
@@ -93,6 +89,14 @@ namespace OrganisationProfitCalculator.UseCase
             }
 
             return $"Office With The Largest Nett Profit Is: {officeWithLargestNettProfit} With The Nett Profit Of: {maxNettProfit}";
+        }
+
+        private List<Office> ProcessFile(string fileName)
+        {
+            var path = _fileSystemProvider.GetFile(fileName);
+            var file = _fileSystemProvider.ReadFile(path);
+            var offices = _fileSystemProvider.GetOffices(file);
+            return offices;
         }
     }
 }
