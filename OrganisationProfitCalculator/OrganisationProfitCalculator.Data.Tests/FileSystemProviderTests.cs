@@ -9,7 +9,7 @@ namespace OrganisationProfitCalculator.Data.Tests
         public void Given_valid_fileName_Should_return_file_path()
         {
             //Arrange  
-            var fileName = @"Documents\Question 1 input.csv";
+            var fileName = "Question 1 input.csv";
             var fileSystemProvider = new FileSystemProvider();
 
             //Act   
@@ -23,7 +23,7 @@ namespace OrganisationProfitCalculator.Data.Tests
         public void Given_filePath_Should_read_file()   
         {
             //Arrange  
-            var fileName = @"Documents\Question 1 input.csv";
+            var fileName = "Question 1 input.csv";
             var fileSystemProvider = new FileSystemProvider();
             var filePath = fileSystemProvider.GetFile(fileName);
 

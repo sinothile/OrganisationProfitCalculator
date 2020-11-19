@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="DataCleanerTests.cs" />
     <Compile Include="FileSystemProviderTests.cs" />
-    <Compile Include="OfficeRelationshipManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

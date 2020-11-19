@@ -15,3 +15,5 @@ I:\OrganisationProfitCalculator\OrganisationProfitCalculator\OrganisationProfitC
 I:\OrganisationProfitCalculator\OrganisationProfitCalculator\OrganisationProfitCalculator.Data.Tests\obj\Debug\OrganisationProfitCalculator.Data.Tests.csproj.CopyComplete
 I:\OrganisationProfitCalculator\OrganisationProfitCalculator\OrganisationProfitCalculator.Data.Tests\obj\Debug\OrganisationProfitCalculator.Data.Tests.dll
 I:\OrganisationProfitCalculator\OrganisationProfitCalculator\OrganisationProfitCalculator.Data.Tests\obj\Debug\OrganisationProfitCalculator.Data.Tests.pdb
+I:\OrganisationProfitCalculator\OrganisationProfitCalculator\OrganisationProfitCalculator.Data.Tests\bin\Debug\Documents\Question 1 input.csv
+I:\OrganisationProfitCalculator\OrganisationProfitCalculator\OrganisationProfitCalculator.Data.Tests\bin\Debug\Documents\Question 2 input.csv

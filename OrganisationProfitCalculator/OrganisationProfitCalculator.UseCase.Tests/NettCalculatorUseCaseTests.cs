@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using OrganisationProfitCalculator.Data;
 
 namespace OrganisationProfitCalculator.UseCase.Tests
@@ -10,15 +11,15 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         public void Given_null_officeName_Should_return_nettProfit_zero()
         {
             //Arrange  
-            var fileName = @"Documents\Question 1 input.csv";
+            var fileName = "Question 1 input.csv";
             var nettCalculator = NettCalculatorUseCase();
 
             //Act
-            var actual = nettCalculator.CalculateNettProfit(fileName, null);
+            //Act
+            var actual = Assert.Throws<Exception>(() => nettCalculator.CalculateNettProfit(fileName, null));
 
             //Assert
-            var expected = 0;
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("Office name has not been provided", actual.Message);
         }
 
         [TestCase("invalid")]
@@ -26,15 +27,14 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         public void Given_invalid_officeName_Should_return_nettProfit_zero(string officeName)
         {
             //Arrange 
-            var fileName = @"Documents\Question 1 input.csv";
+            var fileName = "Question 1 input.csv";
             var nettCalculator = NettCalculatorUseCase();
 
             //Act
-            var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
+            var actual = Assert.Throws<Exception>(() => nettCalculator.CalculateNettProfit(fileName, officeName));
 
             //Assert
-            var expected = 0;
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("Could not find the specified office", actual.Message);
         }
 
         [TestCase("HeadOffice", 627)]
@@ -44,7 +44,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         public void Given_valid_officeName_Should_get_nettProfit(string officeName, double expected)
         {
             //Arrange
-            var fileName = @"Documents\Question 1 input.csv";
+            var fileName = "Question 1 input.csv";
             var nettCalculator = NettCalculatorUseCase();
 
             //Act
@@ -61,7 +61,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         public void Given_officeName_with_any_cases_Should_get_nettProfit(string officeName, double expected)
         {
             //Arrange
-            var fileName = @"Documents\Question 1 input.csv";
+            var fileName = "Question 1 input.csv";
             var nettCalculator = NettCalculatorUseCase();
 
             //Act
@@ -78,7 +78,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         public void Given_officeName_with_trailing_spaces_Should_get_nettProfit(string officeName, double expected)
         {
             //Arrange 
-            var fileName = @"Documents\Question 1 input.csv";
+            var fileName = "Question 1 input.csv";
             var nettCalculator = NettCalculatorUseCase();
 
             //Act
@@ -95,7 +95,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         public void Given_officeName_with_no_spaces_Should_get_nettProfit(string officeName, double expected)
         {
             //Arrange   
-            var fileName = @"Documents\Question 1 input.csv";
+            var fileName = "Question 1 input.csv";
             var nettCalculator = NettCalculatorUseCase();
 
             //Act
@@ -109,7 +109,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         public void Given_fileName_Should_return_office_with_largest_nett_profit()
         {
             //Arrange   
-            var fileName = @"Documents\Question 2 input.csv";
+            var fileName = "Question 2 input.csv";
             var nettCalculator = NettCalculatorUseCase();
 
             //Act
@@ -122,7 +122,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
 
         private NettCalculatorUseCase NettCalculatorUseCase()
         {
-            return new NettCalculatorUseCase(new FileSystemProvider(), new DataCleaner(), new OfficeRelationshipManager(new DataCleaner()));
+            return new NettCalculatorUseCase(new FileSystemProvider(), new DataCleaner());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using LumenWorks.Framework.IO.Csv;
@@ -14,7 +15,7 @@ namespace OrganisationProfitCalculator.Data
         //This method will get the file
         public string GetFile(string fileName)
         {
-            return Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), fileName);
+            return Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),"Documents", fileName);
         }
 
         //This method will read the file
@@ -30,14 +31,15 @@ namespace OrganisationProfitCalculator.Data
         }
 
         //This method will populate all the data to the model and return offices
-        public List<Office> GetOffices(DataTable csvTable)  
+        public List<Office> GetOffices(DataTable csvTable)
         {
             var offices = new List<Office>();
             for (int i = 0; i < csvTable.Rows.Count; i++)
             {
-                offices.Add(new Office { Name = csvTable.Rows[i][0].ToString(), Parent = csvTable.Rows[i][1].ToString(), Amount = Convert.ToDouble(csvTable.Rows[i][2]) });
+                var rows = csvTable.Rows;
+                offices.Add(new Office { Name = rows[i][0].ToString(), Parent = rows[i][1].ToString(), Amount =  decimal.Parse(rows[i][2].ToString(), CultureInfo.InvariantCulture) });
             }
-
+                    
             return offices;
         }
     }

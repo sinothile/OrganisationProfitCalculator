@@ -45,9 +45,7 @@
     <Compile Include="FileSystemProvider.cs" />
     <Compile Include="Interfaces\IDataCleaner.cs" />
     <Compile Include="Interfaces\IFileSystemProvider.cs" />
-    <Compile Include="Interfaces\IOfficeRelationshipManager.cs" />
     <Compile Include="Models\Office.cs" />
-    <Compile Include="OfficeRelationshipManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,5 +54,13 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="Documents\Question 1 input.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Documents\Question 2 input.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

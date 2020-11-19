@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using OrganisationProfitCalculator.Data.Interfaces;
 using OrganisationProfitCalculator.Data.Models;
@@ -9,38 +10,65 @@ namespace OrganisationProfitCalculator.UseCase
     {
         private readonly IFileSystemProvider _fileSystemProvider;
         private readonly IDataCleaner _dataCleaner;
-        private readonly IOfficeRelationshipManager _officeRelationshipManager;
-        public NettCalculatorUseCase(IFileSystemProvider fileSystemProvider, IDataCleaner dataCleaner, IOfficeRelationshipManager officeRelationshipManager)
+        public NettCalculatorUseCase(IFileSystemProvider fileSystemProvider, IDataCleaner dataCleaner)
         {
             _fileSystemProvider = fileSystemProvider;
             _dataCleaner = dataCleaner;
-            _officeRelationshipManager = officeRelationshipManager;
         }
 
         //This method calls all the methods to be executed in order to get nett profit
-        public double CalculateNettProfit(string fileName, string officeName)
-        {   
-            var fileData = ProcessFile(fileName);
-            var descendants = _officeRelationshipManager.GetDescendants(officeName, fileData);
+        public decimal CalculateNettProfit(string fileName, string officeName)
+        {
+            if (string.IsNullOrWhiteSpace(officeName))
+            {
+                throw new Exception("Office name has not been provided");
+            }
 
-            return GetNettProfit(fileData, descendants);        
+            var fileData = ProcessFile(fileName);
+
+            if (OfficeNameDoesNotExist(officeName, fileData))
+            {
+                throw new Exception("Could not find the specified office");
+            }
+            var descendants = GetDescendants(officeName, fileData);
+
+            return GetNettProfit(descendants);        
+        }
+            
+        private bool OfficeNameDoesNotExist(string officeName, List<Office> fileData)
+        {   
+            return !fileData.Any(x => _dataCleaner.CleanData(x.Name).Equals(_dataCleaner.CleanData(officeName)));
+        }
+
+        //This method will get all the descendants
+        private List<Office> GetDescendants(string officeName, List<Office> officeData)
+        {
+            var cleanedOfficeName = _dataCleaner.CleanData(officeName);
+            var currentOffice = officeData.FirstOrDefault(x => _dataCleaner.CleanData(x.Name).Equals(cleanedOfficeName));
+
+            var descendants = new List<Office>() { currentOffice };
+
+            foreach (var office in officeData)
+            {
+                for (int i = 0; i < descendants.Count; i++)
+                {
+                    var parent = _dataCleaner.CleanData(office.Parent);
+                    var officeInQuestion = _dataCleaner.CleanData(descendants[i].Name);
+                    if (parent.Equals(officeInQuestion))
+                    {
+                        descendants.Add(office);
+                    }
+                }
+            }
+            return descendants;
         }
 
         //This method will calculate the nett profit for office including its descendants
-        private double GetNettProfit(List<Office> offices, List<string> descendants)
+        private decimal GetNettProfit(List<Office> descendants)
         {
-            var total = new List<double>();
+            var total = descendants.Select(x => x.Amount).Sum();
 
-            foreach (var descendant in descendants)
-            {
-                var amount = (offices.Where(x => _dataCleaner.CleanData(x.Name) == descendant).Select(y => y.Amount)).ToList();
-                if (amount.Any())   
-                {
-                    total.Add(amount.ElementAt(0));
-                }
-            }
-
-            return total.Sum();
+            return total;
         }
 
         /*
@@ -52,12 +80,12 @@ namespace OrganisationProfitCalculator.UseCase
         {
             var offices = ProcessFile(fileName);
             var officeWithLargestNettProfit = "";
-            double maxNettProfit = 0;
+            decimal maxNettProfit = 0;
 
             foreach (var office in offices)
             {
-                var descendants = _officeRelationshipManager.GetDescendants(office.Name, offices);
-                var total = GetNettProfit(offices, descendants);
+                var descendants = GetDescendants(office.Name, offices);
+                var total = GetNettProfit(descendants);
 
                 if (!(total > maxNettProfit)) continue;
                 maxNettProfit = total;
