@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using OrganisationProfitCalculator.Data;
-using OrganisationProfitCalculator.Data.Interfaces;
 
 namespace OrganisationProfitCalculator.UseCase.Tests
 {
@@ -12,7 +11,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         {
             //Arrange  
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
+            var nettCalculator = NettCalculatorUseCase();
 
             //Act
             var actual = nettCalculator.CalculateNettProfit(fileName, null);
@@ -28,7 +27,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         {
             //Arrange 
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
+            var nettCalculator = NettCalculatorUseCase();
 
             //Act
             var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
@@ -46,7 +45,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         {
             //Arrange
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
+            var nettCalculator = NettCalculatorUseCase();
 
             //Act
             var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
@@ -63,7 +62,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         {
             //Arrange
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
+            var nettCalculator = NettCalculatorUseCase();
 
             //Act
             var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
@@ -80,7 +79,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         {
             //Arrange 
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
+            var nettCalculator = NettCalculatorUseCase();
 
             //Act
             var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
@@ -97,7 +96,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         {
             //Arrange   
             var fileName = @"Documents\Question 1 input.csv";
-            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
+            var nettCalculator = NettCalculatorUseCase();
 
             //Act
             var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
@@ -111,7 +110,7 @@ namespace OrganisationProfitCalculator.UseCase.Tests
         {
             //Arrange   
             var fileName = @"Documents\Question 2 input.csv";
-            var nettCalculator = NettCalculator(new FileSystemProvider(), new DataCleaner());
+            var nettCalculator = NettCalculatorUseCase();
 
             //Act
             var actual = nettCalculator.FindLargestNettProfit(fileName);
@@ -121,9 +120,10 @@ namespace OrganisationProfitCalculator.UseCase.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        private NettCalculatorUseCase NettCalculator(IFileSystemProvider fileSystemProvider, IDataCleaner dataCleaner)
+        private NettCalculatorUseCase NettCalculatorUseCase()
         {
-            return new NettCalculatorUseCase(fileSystemProvider, dataCleaner);
+            return new NettCalculatorUseCase(new FileSystemProvider(), new DataCleaner(), new OfficeRelationshipManager(new DataCleaner()));
         }
     }
 }
+    

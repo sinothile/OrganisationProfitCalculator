@@ -45,7 +45,9 @@
     <Compile Include="FileSystemProvider.cs" />
     <Compile Include="Interfaces\IDataCleaner.cs" />
     <Compile Include="Interfaces\IFileSystemProvider.cs" />
+    <Compile Include="Interfaces\IOfficeRelationshipManager.cs" />
     <Compile Include="Models\Office.cs" />
+    <Compile Include="OfficeRelationshipManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

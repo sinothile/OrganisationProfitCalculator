@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OrganisationProfitCalculator.Data;
 using OrganisationProfitCalculator.Data.Interfaces;
 using OrganisationProfitCalculator.UseCase;
@@ -15,8 +11,9 @@ namespace OrganisationProfitCalculator
         {
             IFileSystemProvider fileSystemProvider = new FileSystemProvider();  
             IDataCleaner dataCleaner = new DataCleaner();
+            IOfficeRelationshipManager officeRelationshipManager = new OfficeRelationshipManager(dataCleaner);
 
-            var nettCalculator = new NettCalculatorUseCase(fileSystemProvider, dataCleaner);
+            var nettCalculator = new NettCalculatorUseCase(fileSystemProvider, dataCleaner, officeRelationshipManager);
 
             Console.WriteLine("Enter Office to calculate nett profit for: ");
             var office = Console.ReadLine();

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OrganisationProfitCalculator.Data.Interfaces;
+﻿using OrganisationProfitCalculator.Data.Interfaces;
 
 namespace OrganisationProfitCalculator.Data
 {

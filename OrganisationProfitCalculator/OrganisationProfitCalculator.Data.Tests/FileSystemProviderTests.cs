@@ -1,5 +1,4 @@
-﻿using System.Data;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace OrganisationProfitCalculator.Data.Tests
 {

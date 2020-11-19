@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OrganisationProfitCalculator.Data.Models
+﻿namespace OrganisationProfitCalculator.Data.Models
 {
     public class Office
     {
