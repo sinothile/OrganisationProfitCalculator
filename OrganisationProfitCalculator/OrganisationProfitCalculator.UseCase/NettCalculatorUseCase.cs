@@ -74,7 +74,10 @@ namespace OrganisationProfitCalculator.UseCase
         /*
           Question 2
           Because i had done question 1 and it had all the methods i can use to find the office with the largest nett profit,
-          i then reused those methods inorder to avoid duplicates and also to show that my code is generic and reusable
+          i then reused those methods inorder to avoid duplicates and also to show that my code is generic and reusable.
+          I am getting the nett profit for each office and putting that in a temporary variable, then i compare if
+          the current nett is the largest i then store it in temporary variable till i get the largest.
+
          */
         public string FindLargestNettProfit(string fileName)
         {
