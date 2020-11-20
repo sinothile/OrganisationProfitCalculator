@@ -21,14 +21,14 @@ namespace OrganisationProfitCalculator.UseCase
         {
             if (string.IsNullOrWhiteSpace(officeName))
             {
-                throw new Exception("Office name has not been provided");
+                return 0;
             }
 
             var fileData = ProcessFile(fileName);
 
             if (OfficeNameDoesNotExist(officeName, fileData))
             {
-                throw new Exception("Could not find the specified office");
+                return 0;
             }
             var descendants = GetDescendants(officeName, fileData);
 

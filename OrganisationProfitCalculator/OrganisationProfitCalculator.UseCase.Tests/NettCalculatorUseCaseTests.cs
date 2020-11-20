@@ -15,11 +15,11 @@ namespace OrganisationProfitCalculator.UseCase.Tests
             var nettCalculator = NettCalculatorUseCase();
 
             //Act
-            //Act
-            var actual = Assert.Throws<Exception>(() => nettCalculator.CalculateNettProfit(fileName, null));
+            var actual =  nettCalculator.CalculateNettProfit(fileName, null);
 
             //Assert
-            Assert.AreEqual("Office name has not been provided", actual.Message);
+            var expected = 0;
+            Assert.AreEqual(expected, actual);
         }
 
         [TestCase("invalid")]
@@ -31,10 +31,11 @@ namespace OrganisationProfitCalculator.UseCase.Tests
             var nettCalculator = NettCalculatorUseCase();
 
             //Act
-            var actual = Assert.Throws<Exception>(() => nettCalculator.CalculateNettProfit(fileName, officeName));
+            var actual = nettCalculator.CalculateNettProfit(fileName, officeName);
 
             //Assert
-            Assert.AreEqual("Could not find the specified office", actual.Message);
+            var expected = 0;
+            Assert.AreEqual(expected, actual);
         }
 
         [TestCase("HeadOffice", 627)]
